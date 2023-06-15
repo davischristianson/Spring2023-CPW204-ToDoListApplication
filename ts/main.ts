@@ -63,6 +63,36 @@ function getToDoItem():ToDoItem {
  * Display given ToDoItem on the web page
  */
 function displayToDoItem(item:ToDoItem):void {
+    // ex. <h3>Record JS Lecture</h3>
+    let itemText = document.createElement("h3");
+    itemText.innerText = item.title;
+
+    // ex. <p>June 1st 2020</p>
+    let itemDate = document.createElement("p");
+    itemDate.innerText = item.dueDate.toString();
+
+    // <div class="completed"></div> or <div></div>
+    let itemDiv = document.createElement("div");
+    if(item.isCompleted) {
+        itemDiv.classList.add("completed");
+    }
+
+    /*  <div class="completed">
+            <h3>Record JS Lecture</h3>
+            <p>June 1st 2020</p>
+        </div>
+    */
+    itemDiv.appendChild(itemText);
+    itemDiv.appendChild(itemDate);
+
+    if(item.isCompleted) {
+        let completedToDos = document.getElementById("complete-items");
+        completedToDos.appendChild(itemDiv);
+    }
+    else {
+        let incompleteToDos = document.getElementById("incomplete-items");
+        incompleteToDos.appendChild(itemDiv);
+    }
 
 }
 

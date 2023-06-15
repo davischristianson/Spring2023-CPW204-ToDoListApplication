@@ -29,4 +29,22 @@ function getToDoItem() {
     return myItem;
 }
 function displayToDoItem(item) {
+    var itemText = document.createElement("h3");
+    itemText.innerText = item.title;
+    var itemDate = document.createElement("p");
+    itemDate.innerText = item.dueDate.toString();
+    var itemDiv = document.createElement("div");
+    if (item.isCompleted) {
+        itemDiv.classList.add("completed");
+    }
+    itemDiv.appendChild(itemText);
+    itemDiv.appendChild(itemDate);
+    if (item.isCompleted) {
+        var completedToDos = document.getElementById("complete-items");
+        completedToDos.appendChild(itemDiv);
+    }
+    else {
+        var incompleteToDos = document.getElementById("incomplete-items");
+        incompleteToDos.appendChild(itemDiv);
+    }
 }
