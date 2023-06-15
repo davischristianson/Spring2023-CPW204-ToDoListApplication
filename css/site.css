@@ -5,6 +5,7 @@
     padding: .5em;
     border-radius: .75em;
     margin: 1em;
+    cursor: pointer;
 }
 
 .todo h3 {
@@ -18,4 +19,14 @@
 .completed {
     opacity: 40%;
     background-color: lightgreen;
+    text-decoration: line-through;
+}
+
+#complete-items {
+    border: .2em solid greenyellow;
+}
+
+#incomplete-items {
+    border: .2em solid crimson;
+    margin-bottom: 1em;
 }
